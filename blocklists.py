@@ -52,7 +52,7 @@ BLOCKLIST_URLS = [
 ]
 
 LOCAL_FOLDER = None  # Optional: path to a folder with local blocklists
-OUTPUT_FILE = "blocklist.txt"
+OUTPUT_FILE = "blocklist.txt.gz"  # Changed to compressed format
 
 # Robustness settings
 TIMEOUT_SECONDS = 30
@@ -224,7 +224,7 @@ def main():
     if BLOCKLIST_URLS:
       print(
           f"\n--- Processing {len(BLOCKLIST_URLS)} Remote URL(s) Sequentially"
-          " ---"
+          "     ---"
       )
       for url in BLOCKLIST_URLS:
         all_domains_list.extend(fetch_from_url(url))
@@ -251,10 +251,10 @@ def main():
     total_unique = len(unique_domains)
     duplicates_removed = total_parsed_before_dedup - total_unique
 
-    # 3. Write out the slimline list
-    print(f"Writing {total_unique:,} unique domains to {OUTPUT_FILE}...")
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-      f.write("# Collated Pi-hole Slimline Blocklist\n")
+    # 3. Write out the compressed gzipped slimline list
+    print(f"Writing {total_unique:,} unique domains to {OUTPUT_FILE} (Gzipped)...")
+    with gzip.open(OUTPUT_FILE, "wt", encoding="utf-8") as f:
+      f.write("# Collated Pi-hole Slimline Blocklist (Compressed)\n")
       f.write(f"# Generated on: {start_dt.strftime('%Y-%m-%d %H:%M:%S')}\n")
       f.write(f"# Total raw domains parsed: {total_parsed_before_dedup:,}\n")
       f.write(f"# Duplicates removed: {duplicates_removed:,}\n")
