@@ -27,6 +27,12 @@ jobs:
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
-          git pull --rebase origin main
+          
+          # 1. Stage the freshly generated file first
           git add blocklist.txt
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update blocklist [skip ci]" && git push)
+          
+          # 2. Pull remote changes with autostash enabled so rebase doesn't break
+          git pull --rebase --autostash origin main
+          
+          # 3. Commit and push if there are changes
+          git diff --staged --quiet || (git commit -m "Auto-update blocklist [skip ci]" && git push)
