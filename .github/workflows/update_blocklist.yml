@@ -22,8 +22,7 @@ jobs:
 
       - name: Run blocklist consolidator
         run: python blocklists.py
-
-      - name: Commit and push if changed
+- name: Commit and push if changed
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
