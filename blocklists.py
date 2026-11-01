@@ -94,7 +94,10 @@ def main():
                 print(f"  -> Extracted {parsed_count:,} domains.")
         except Exception as e:
             print(f"  -> ERROR fetching {url}: {e}")
-
+            
+    # Deduplicate non-HaGeZi lists against HaGeZi lists so general.txt has ZERO overlap
+    general_domains = general_domains - hagezi_domains
+    
     # Write HaGeZi List
     hagezi_sorted = sorted(list(hagezi_domains))
     print(
