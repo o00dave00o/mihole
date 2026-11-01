@@ -26,7 +26,7 @@ This repository does not create or maintain these blocklists. It merely aggregat
 * **Pro Plus (`pro.plus.txt`)** – Multi-tier threat intelligence and advanced protection.
 * **Threat Intelligence Feeds (`tif.txt`)** – High-security malicious domain blocking.
 * **Fake/Scam Protection (`fake.txt`)** – Anti-scam and deceptive site filters.
-* **NRD Protection (`dga7.txt`)** – Newly registered domain filters.
+* **NRD Protection (`dga30.txt`)** – Newly registered domain filters.
 * **DoH/VPN/Proxy Bypass (`doh-vpn-proxy-bypass.txt`)** – Prevents circumvention of filtering.
 * **Dynamic DNS (`dyndns.txt`)** – Blocks dynamic DNS providers often abused by telemetry.
 * **Native Device Telemetry Filters:**
