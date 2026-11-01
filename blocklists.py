@@ -53,7 +53,7 @@ BLOCKLIST_URLS = [
 ]
 
 LOCAL_FOLDER = None  # Optional: path to a folder with local blocklists
-OUTPUT_FILE = "blocklist.txt.gz"  # Changed to compressed format
+OUTPUT_FILE = "blocklist.gz"  # Changed to compressed format
 
 # Robustness settings
 TIMEOUT_SECONDS = 30
