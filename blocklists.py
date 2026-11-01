@@ -39,6 +39,7 @@ BLOCKLIST_URLS = [
     "https://hagezi-mirror.dnsbunker.org/adblock/pro.plus.txt",
     "https://hagezi-mirror.dnsbunker.org/adblock/tif.txt",
     "https://hagezi-mirror.dnsbunker.org/adblock/dga7.txt",
+    "https://hagezi-mirror.dnsbunker.org/adblock/dga30.txt",
     "https://hagezi-mirror.dnsbunker.org/adblock/dyndns.txt",
     "https://hagezi-mirror.dnsbunker.org/adblock/fake.txt",
     "https://hagezi-mirror.dnsbunker.org/adblock/doh-vpn-proxy-bypass.txt",
