@@ -25,8 +25,9 @@ To use these aggregated lists in your Pi-hole:
 1. Open your **Pi-hole Admin Panel** and navigate to **Adlists**.
 2. Add both of the following Raw URLs:
    ```text
-   [https://raw.githubusercontent.com/o00dave00o/mihole/main/hagezi.txt](https://raw.githubusercontent.com/o00dave00o/mihole/main/hagezi.txt)
-   [https://raw.githubusercontent.com/o00dave00o/mihole/main/general.txt](https://raw.githubusercontent.com/o00dave00o/mihole/main/general.txt)
+   https://raw.githubusercontent.com/o00dave00o/mihole/main/hagezi.txt
+   
+   https://raw.githubusercontent.com/o00dave00o/mihole/main/general.txt
 
 ---
 
