@@ -52,7 +52,7 @@ BLOCKLIST_URLS = [
 ]
 
 LOCAL_FOLDER = None  # Optional: path to a folder with local blocklists
-OUTPUT_FILE = "slimline_blocklist.txt"
+OUTPUT_FILE = "blocklist.txt"
 
 # Robustness settings
 TIMEOUT_SECONDS = 30
