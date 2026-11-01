@@ -1,16 +1,32 @@
-# Pi-hole Slimline Blocklist Aggregator
+# Pi-hole Blocklist Aggregator
 
-An automated GitHub Actions workflow that fetches, cleans, deduplicates, and compresses multiple upstream blocklists into a single, highly optimized, gzipped blocklist (`blocklist.txt.gz`) for Pi-hole.
+An automated GitHub Actions workflow that fetches, cleans, deduplicates, and splits multiple upstream blocklists into two cleanly organized, uncompressed plain-text files (`hagezi.txt` and `general.txt`) for Pi-hole.
 
-Designed to offload heavy lifting from resource-constrained local hardware (like older Raspberry Pi models) while maintaining a robust shield against trackers, malware, and telemetry.
+Designed to offload heavy lifting from resource-constrained local hardware (like older Raspberry Pi models) while maintaining a powerhouse shield against trackers, malware, and telemetry (specifically optimized for smart TVs, Fire Sticks, and IoT devices).
 
 ---
 
 ## 🛠️ How It Works
-1. **Automated Fetching:** Runs via GitHub Actions on a daily schedule to download lists sequentially.
-2. **Parsing & Cleaning:** Strips comments, extracts bare domains from hosts/adblock formats, and filters out invalid entries.
-3. **Deduplication:** Merges overlapping entries across all sources.
-4. **Compression:** Outputs a gzipped file (`blocklist.txt.gz`) to stay well within GitHub storage limits while remaining natively readable by Pi-hole.
+
+1. **Automated Fetching:** Runs via GitHub Actions on a schedule to download 31 distinct upstream feeds sequentially.
+2. **Parsing & Cleaning:** Strips comments, metadata, and non-domain noise, extracting bare domains from hosts/adblock syntax and validating them against strict regex rules.
+3. **Smart Deduplication & Logical Split:** 
+   - Merges and deduplicates entries within HaGeZi feeds into `hagezi.txt`.
+   - Merges all other feeds into `general.txt`.
+   - Subtracts `hagezi.txt` domains from `general.txt` so there is **zero cross-file redundancy**.
+4. **GitHub & Pi-hole Optimized:** Outputs two clean plain-text files to stay safely under GitHub's 100 MB file limit while allowing Pi-hole to read the records cleanly while leveraging on-the-fly HTTP `gzip` transport compression.
+
+---
+
+## 📥 How to Use in Pi-hole
+
+To use these aggregated lists in your Pi-hole:
+
+1. Open your **Pi-hole Admin Panel** and navigate to **Adlists**.
+2. Add both of the following Raw URLs:
+   ```text
+   [https://raw.githubusercontent.com/o00dave00o/mihole/main/hagezi.txt](https://raw.githubusercontent.com/o00dave00o/mihole/main/hagezi.txt)
+   [https://raw.githubusercontent.com/o00dave00o/mihole/main/general.txt](https://raw.githubusercontent.com/o00dave00o/mihole/main/general.txt)
 
 ---
 
