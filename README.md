@@ -76,8 +76,3 @@ This repository does not create or maintain these blocklists. It merely aggregat
 
 ---
 
-## 📥 How to Use in Pi-hole
-If you want to use this aggregated list in your own Pi-hole:
-1. Copy the **Raw** URL of the `blocklist.txt.gz` file from this repository.
-2. In your Pi-hole Admin panel, go to **Adlists**.
-3. Paste the URL and click **Add**.
